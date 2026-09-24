@@ -72,8 +72,8 @@ const PROJECTS = [
       'My own portfolio site — a responsive single-page build with scroll reveal animations, section-based navigation and a custom design system.',
     tech: ['React', 'CSS', 'Vite', 'React Icons'],
     preview: <PortfolioPreview />,
-    live: '#',
-    github: '#',
+    live: 'https://vasuuportfolio.netlify.app/',
+    github: 'https://github.com/rvasu297-creator/Portfolio',
   },
   {
     title: 'To-Do List',
