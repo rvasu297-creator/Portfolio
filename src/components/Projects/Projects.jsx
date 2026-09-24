@@ -54,7 +54,7 @@ const PROJECTS = [
       'An Instagram-inspired React experience exploring reusable components across feeds, stories, reels, search and messaging.',
     tech: ['React', 'React Router', 'Components'],
     preview: <InstaPreview />,
-    live: 'https://vasuinsta.netlify.app/',
+    live: 'https://instagram-rho-azure.vercel.app/',
     github: 'https://github.com/rvasu297-creator/Instagram',
   },
   {
