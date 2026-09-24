@@ -1,0 +1,129 @@
+.education {
+  padding: 140px 0;
+  background: var(--p-petrified, #eae0c8);
+  color: #202833;
+}
+
+.education .section-kicker {
+  color: #3d4a5e;
+}
+
+.education .section-heading {
+  color: #202833;
+}
+
+.education__header {
+  text-align: center;
+  margin-bottom: 76px;
+}
+
+.education__timeline {
+  position: relative;
+  max-width: 680px;
+  margin: 0 auto;
+  padding-left: 34px;
+}
+
+.education__timeline::before {
+  content: '';
+  position: absolute;
+  left: 17px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: rgba(32, 40, 51, 0.3);
+}
+
+.education__item {
+  position: relative;
+  display: flex;
+  gap: 22px;
+  margin-bottom: 34px;
+}
+
+.education__item:last-child {
+  margin-bottom: 0;
+}
+
+.education__dot {
+  position: absolute;
+  left: -34px;
+  top: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--p-sensible-hue, #eae0c8);
+  border: 2px solid var(--p-inkjet, #202833);
+  color: var(--p-inkjet, #202833);
+  font-size: 0.95rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education__card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.55);
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  padding: 24px 26px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease,
+    background 0.35s ease;
+}
+
+.education__card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 12px 28px rgba(32, 40, 51, 0.28);
+  border-color: var(--p-inkjet, #202833);
+}
+
+.education__card--current:hover {
+  border-color: #202833;
+}
+
+.education__tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #202833;
+  background: var(--p-sensible-hue, #eae0c8);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 12px;
+}
+
+.education__card--current .education__tag {
+  background: #ffffff;
+}
+
+.education__title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #202833;
+  margin-bottom: 6px;
+}
+
+.education__place {
+  font-size: 0.92rem;
+  color: #3d4a5e;
+}
+
+@media (max-width: 520px) {
+  .education {
+    padding: 100px 0;
+  }
+  .education__timeline {
+    padding-left: 30px;
+  }
+  .education__card {
+    padding: 20px;
+  }
+  .education__place {
+    text-align: justify;
+  }
+}

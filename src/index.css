@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+
+:root {
+  /* ---- palette (Pearl + Charcoal Blue) ---- */
+  --p-milky-green: #eae0c8;     /* Education — pearl */
+  --p-pecan-pie: #202833;       /* Home accent — charcoal blue */
+  --p-blue-sari: #202833;       /* Home — charcoal blue */
+  --p-inkjet: #202833;          /* About — charcoal blue */
+  --p-petrified: #eae0c8;       /* Education — pearl */
+  --p-dusty-trail: #202833;     /* Skills — charcoal blue */
+  --p-urban-charm: #eae0c8;    /* Projects — pearl */
+  --p-sensible-hue: #eae0c8;    /* Contact accents — pearl */
+
+  /* ---- shared design tokens used across components ---- */
+  --font-display: "Josefin Sans", Georgia, "Times New Roman", sans-serif;
+  --font-body: "Josefin Sans", Georgia, "Times New Roman", sans-serif;
+
+  --text-primary: #202833;
+  --text-secondary: #3d4a5e;
+  --text-muted: #7a8494;
+
+  --bg-cream: #eae0c8;
+  --border: #d3c6a4;
+  --border-soft: rgba(32, 40, 51, 0.16);
+
+  --accent-blue: #202833;
+  --accent-blue-deep: #131a23;
+  --accent-green: #4a5f7a;
+  --accent-yellow: #eae0c8;
+
+  --bg-tint-blue: rgba(32, 40, 51, 0.08);
+  --bg-tint-green: rgba(32, 40, 51, 0.12);
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 10px 30px -18px rgba(32, 40, 51, 0.35);
+  --nav-height: 72px;
+
+  /* ---- texture — warm paper grain ---- */
+  --paper-base: #eae0c8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  /* base type — everything scales from here (+10%) */
+  font-size: 17.6px;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--bg-cream);
+  /* subtle paper-grain overlay from 2nd pic — applied globally at low opacity */
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* reusable paper texture for light sections (2nd pic) */
+.paper-texture {
+  position: relative;
+  isolation: isolate;
+}
+
+.paper-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.55;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='0.18'/%3E%3C/svg%3E"), radial-gradient(ellipse at 50% 0%, rgba(32,40,51,0.06), transparent 70%);
+}
+
+.paper-texture > * {
+  position: relative;
+  z-index: 1;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+.section-kicker {
+  display: inline-block;
+  margin: 0 0 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3.8vw, 2.5rem);
+  font-weight: 700;
+  margin: 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 26px;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--accent-blue);
+  color: #eae0c8;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ---- scroll-reveal helper classes, used by useReveal ---- */
+.reveal {
+  opacity: 0;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal-up {
+  transform: translateY(28px);
+}
+
+.reveal-left {
+  transform: translateX(-28px);
+}
+
+.reveal-right {
+  transform: translateX(28px);
+}
+
+.reveal-in {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
