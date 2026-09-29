@@ -66,7 +66,7 @@ function Contact() {
                   <FaPhoneAlt />
                 </span>
                 <p>
-                  <strong>Phone :</strong> +91 7695987854
+                  <strong>Phone :</strong> +91 769598XXXX
                 </p>
               </div>
 
