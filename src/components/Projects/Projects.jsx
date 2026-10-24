@@ -1,7 +1,18 @@
 import { useState } from 'react'
-import { FaGithub, FaArrowUp } from 'react-icons/fa'
+import { FaGithub, FaArrowUp, FaServer } from 'react-icons/fa'
 import useReveal from '../../hooks/useReveal.js'
 import './Projects.css'
+
+function NotesPreview() {
+  return (
+    <img
+      src="/images/notes-app.png"
+      alt="Full stack Notes app project screenshot"
+      className="project-row__img"
+      loading="lazy"
+    />
+  )
+}
 
 function TodoPreview() {
   return (
@@ -48,6 +59,16 @@ function PortfolioPreview() {
 }
 
 const PROJECTS = [
+  {
+    title: 'Notes App',
+    label: 'Full Stack',
+    description:
+      'A full stack notes application with secure user authentication, where you can create, edit, search and delete notes, all synced with a REST API and database.',
+    tech: ['React', 'Django REST' , 'MySQL' ],
+    preview: <NotesPreview />,
+    live: 'https://notesappvasu.netlify.app/',
+    github: 'https://github.com/rvasu297-creator/Note_frontend',
+  },
   {
     title: 'Instagram clone',
     description:
@@ -133,21 +154,41 @@ function ProjectRow({ project, index, active, onSelect }) {
         </div>
 
         <div className="project-row__actions">
-          
-            <a href={project.live}
+          <a
+            href={project.live}
             className="project-row__study"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={(event) => event.stopPropagation()}
           >
             Live <FaArrowUp className="project-row__study-arrow" />
           </a>
-          
-            <a href={project.github}
+
+          <a
+            href={project.github}
             className="project-row__icon-btn"
             aria-label={`${project.title} GitHub repository`}
+            title="GitHub repo"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={(event) => event.stopPropagation()}
           >
             <FaGithub />
           </a>
+
+          {project.backend && (
+            <a
+              href={project.backend}
+              className="project-row__icon-btn"
+              aria-label={`${project.title} backend repository`}
+              title="Backend repo"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <FaServer />
+            </a>
+          )}
         </div>
       </div>
     </article>
